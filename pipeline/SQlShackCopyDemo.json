@@ -73,7 +73,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Get FileSize",
+							"name": "GetFileSize",
 							"type": "GetMetadata",
 							"dependsOn": [],
 							"policy": {
@@ -103,6 +103,25 @@
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
+								}
+							}
+						},
+						{
+							"name": "If Condition_CheckSize",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "GetFileSize",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "\n@greaterOrEquals(1024,activity('getFileSizeActivity').output.size)\n",
+									"type": "Expression"
 								}
 							}
 						}
