@@ -120,7 +120,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greaterOrEquals(1024,int(activity('GetFileSize').output.size))",
+									"value": "@greaterOrEquals(1,int(activity('GetFileSize').output.size))",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
