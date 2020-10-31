@@ -85,22 +85,23 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger_Event')]",
+			"name": "[concat(parameters('factoryName'), '/trigger_Tumbling')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
+				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/demodata/blobs/F",
-					"blobPathEndsWith": "CSV",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('trigger_Event_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
+					"frequency": "Minute",
+					"interval": 5,
+					"startTime": "2020-10-31T10:13:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
 				}
 			},
 			"dependsOn": []
@@ -444,30 +445,30 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger_Tumbling')]",
+			"name": "[concat(parameters('factoryName'), '/trigger_Event')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "TriggerDemo",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "TriggerDemo",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"frequency": "Minute",
-					"interval": 5,
-					"startTime": "2020-10-31T10:13:00.000Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 50,
-					"retryPolicy": {
-						"intervalInSeconds": 30
-					},
-					"dependsOn": []
+					"blobPathBeginsWith": "/demodata/blobs/F",
+					"blobPathEndsWith": "CSV",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trigger_Event_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": [
