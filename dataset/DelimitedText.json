@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "F1.csv",
 				"container": "demodata"
 			},
 			"columnDelimiter": ",",
