@@ -1,0 +1,24 @@
+{
+	"name": "trigger_scheduled",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "TriggerDemo",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2020-10-31T10:05:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
