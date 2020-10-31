@@ -1,0 +1,18 @@
+{
+	"name": "trigger_Event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/demodata/blobs/F",
+			"blobPathEndsWith": "CSV",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/bd14f23f-b606-40c5-918a-9728bc9bbc65/resourceGroups/SQLShackRG/providers/Microsoft.Storage/storageAccounts/sqlshackstorage",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
