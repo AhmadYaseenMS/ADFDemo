@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "AYDataFactory"
+		},
+		"AzureBlobStorageLS_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorageSource_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabaseSink_connectionString": {
+			"value": ""
+		},
+		"trigger_Event_properties_typeProperties_scope": {
+			"value": "/subscriptions/bd14f23f-b606-40c5-918a-9728bc9bbc65/resourceGroups/SQLShackRG/providers/Microsoft.Storage/storageAccounts/sqlshackstorage"
+		}
+	}
+}
