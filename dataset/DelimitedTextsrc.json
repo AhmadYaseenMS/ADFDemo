@@ -1,0 +1,21 @@
+{
+	"name": "DelimitedTextsrc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SrcLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "dest"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
