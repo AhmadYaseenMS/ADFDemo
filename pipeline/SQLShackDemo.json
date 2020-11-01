@@ -5,7 +5,14 @@
 			{
 				"name": "CopyBetweenContainers",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "CheckFiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -76,7 +83,9 @@
 						"referenceName": "DelimitedTextsrc",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						"size"
+					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings"
 					},
