@@ -183,6 +183,22 @@
 					"referenceName": "SQL",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Delay",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "CheckFiles",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 330
+				}
 			}
 		],
 		"annotations": []
