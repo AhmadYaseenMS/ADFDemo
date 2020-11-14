@@ -19,7 +19,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "portal.azure.com.har",
 				"folderPath": {
 					"value": "@{dataset().Directory}",
 					"type": "Expression"
