@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "portal.azure.com.har",
+				"fileName": "1.txt",
 				"container": "dest"
 			},
 			"columnDelimiter": ",",
