@@ -87,7 +87,8 @@
 						"size"
 					],
 					"storeSettings": {
-						"type": "AzureBlobStorageReadSettings"
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true
 					},
 					"formatSettings": {
 						"type": "DelimitedTextReadSettings"
@@ -182,22 +183,6 @@
 				"linkedServiceName": {
 					"referenceName": "SQL",
 					"type": "LinkedServiceReference"
-				}
-			},
-			{
-				"name": "Delay",
-				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "CheckFiles",
-						"dependencyConditions": [
-							"Completed"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 330
 				}
 			}
 		],
